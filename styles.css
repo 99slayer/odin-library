@@ -8,7 +8,7 @@ body{
     background-color: aliceblue;
 }
 .overlay{
-    display: none;
+    visibility: hidden;
     position: absolute;
     left: 40%;
     top: 200px;
@@ -27,7 +27,7 @@ body{
     gap: 10px;
 }
 .mainCont{
-    padding: 10px;
+    padding: 10px 100px 10px 100px;
     height: 100vh;
     display: grid;
     grid-template-rows: 1fr 5fr 1fr;
@@ -41,7 +41,13 @@ body{
 .header .buttons{
 
 }
-.main{
+.cardGrid{
+    padding: 20px;
+    display: grid;
+    gap: 10px;
+    border: 3px solid black;
+}
+.cardGrid .card{
     border: 3px solid black;
 }
 .footer{
