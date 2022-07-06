@@ -21,18 +21,42 @@ function addBookToLibrary(){
     const book = new Book(title.value,author.value,pageCount.value,hasRead.value);
     library.push(book);
     overlay.style.visibility='hidden';
-    library.forEach(displayBooks);
-    //library.forEach()
+    clearGrid();
+    library.forEach(populateGrid);
 };
 
 // loops through library array and displays each book on the page.
-function displayBooks(x){
+function populateGrid(x){
     const card = document.createElement('div');
-    const cardContent = document.createTextNode(`TITLE:${x.title} \bAUTHOR:${x.author} \bPAGE COUNT:${x.pageCount} \bHAVE YOU READ THIS BOOK?:${x.hasRead}`)
+    card.classList.add('card');
+
+    const cardHeading = document.createElement('h3');
+    const title = document.createElement('h4');
+    const author = document.createElement('h4');
+    const pageCount = document.createElement('h4');
+    const hasRead = document.createElement('h4');
+
+    cardHeading.textContent = `${x.title}`;
+    title.textContent = `TITLE: ${x.title}`;
+    author.textContent = `AUTHOR: ${x.author}`;
+    pageCount.textContent = `PAGE COUNT: ${x.pageCount}`;
+    hasRead.textContent = `HAVE YOU READ THIS BOOK?: ${x.hasRead}`;
+
     const removeButton = document.createElement('button');
+    removeButton.textContent = 'REMOVE BOOK';
+
     cardGrid.appendChild(card);
-    card.appendChild(cardContent);
+    card.appendChild(cardHeading);
+    card.appendChild(title);
+    card.appendChild(author);
+    card.appendChild(pageCount);
+    card.appendChild(hasRead);
     card.appendChild(removeButton);
+};
+
+// clears grid to prevent book duplicates
+function clearGrid(){
+    cardGrid.replaceChildren();
 };
 
 function formPopUp(){
@@ -46,13 +70,3 @@ function removeBook(){
 function changeHasRead(){
 
 };
-
-// const dune = new Book('Dune','Frank Hurbert','700','yes');
-// const starShipTroopers = new Book('Starship Troopers','Robert A. Heinlein','500','yes');
-// library.push(dune)
-// library.push(starShipTroopers)
-
-// console.log(library[1])
-// function log(){
-//     console.log()
-// }
