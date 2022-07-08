@@ -1,6 +1,7 @@
 const cardGrid = document.querySelector('.cardGrid');
 const overlay = document.querySelector('.overlay');
 
+//form input elements
 let title = document.getElementById('title');
 let author = document.getElementById('author');
 let pageCount = document.getElementById('pageCount');
@@ -23,12 +24,17 @@ function addBookToLibrary(){
     overlay.style.visibility='hidden';
     clearGrid();
     library.forEach(populateGrid);
+    clearForm();
+    console.log(library);
+    //should clear input after book has been added
 };
 
 // loops through library array and displays each book on the page.
 function populateGrid(x){
     const card = document.createElement('div');
     card.classList.add('card');
+    card.setAttribute('data-library-index',`${library.indexOf(x)}`);
+    let cardIndex = card.getAttribute('data-library-index');
 
     const cardHeading = document.createElement('h3');
     const title = document.createElement('h4');
@@ -43,6 +49,7 @@ function populateGrid(x){
     hasRead.textContent = `HAVE YOU READ THIS BOOK?: ${x.hasRead}`;
 
     const removeButton = document.createElement('button');
+    removeButton.setAttribute('onclick',`removeBook(${cardIndex})`);
     removeButton.textContent = 'REMOVE BOOK';
 
     cardGrid.appendChild(card);
@@ -63,8 +70,20 @@ function formPopUp(){
     overlay.style.visibility='visible';
 };
 
-function removeBook(){
+function clearForm(){
+    title.value = '';
+    author.value = '';
+    pageCount.value = '';
+    hasRead.value = '';
+};
 
+function removeBook(x){
+    if(x>-1){
+        library.splice(x,1);
+    };
+    clearGrid();
+    library.forEach(populateGrid);
+    console.log(library);
 };
 
 function changeHasRead(){
