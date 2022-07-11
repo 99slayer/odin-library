@@ -38,9 +38,6 @@ body{
     justify-content: center;
     border: 3px solid black;
 }
-.header .buttons{
-
-}
 .cardGrid{
     padding: 20px;
     display: grid;

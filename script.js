@@ -18,13 +18,17 @@ function Book(title,author,pageCount,hasRead){
     this.hasRead = hasRead
 };
 
+Book.prototype.changeHasRead = function(){
+
+}
+
 function addBookToLibrary(){
     const book = new Book(title.value,author.value,pageCount.value,hasRead.value);
     library.push(book);
+    clearForm();
     overlay.style.visibility='hidden';
     clearGrid();
     library.forEach(populateGrid);
-    clearForm();
     console.log(library);
     //should clear input after book has been added
 };
@@ -66,8 +70,14 @@ function clearGrid(){
     cardGrid.replaceChildren();
 };
 
-function formPopUp(){
+function openForm(){
+    clearForm();
     overlay.style.visibility='visible';
+};
+
+function closeForm(){
+    clearForm();
+    overlay.style.visibility='hidden';
 };
 
 function clearForm(){
@@ -84,8 +94,4 @@ function removeBook(x){
     clearGrid();
     library.forEach(populateGrid);
     console.log(library);
-};
-
-function changeHasRead(){
-
 };
