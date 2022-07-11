@@ -23,7 +23,7 @@ Book.prototype.changeHasRead = function(){
 }
 
 function addBookToLibrary(){
-    const book = new Book(title.value,author.value,pageCount.value,hasRead.value);
+    const book = new Book(title.value,author.value,pageCount.value,hasRead.checked);
     library.push(book);
     clearForm();
     overlay.style.visibility='hidden';
@@ -46,6 +46,11 @@ function populateGrid(x){
     const pageCount = document.createElement('h4');
     const hasRead = document.createElement('h4');
 
+    const hasReadToggle = document.createElement('input')
+    hasReadToggle.classList.add('hasReadToggle');
+    hasReadToggle.setAttribute('type','checkbox');
+    hasReadToggle.checked = x.hasRead;
+
     cardHeading.textContent = `${x.title}`;
     title.textContent = `TITLE: ${x.title}`;
     author.textContent = `AUTHOR: ${x.author}`;
@@ -62,6 +67,7 @@ function populateGrid(x){
     card.appendChild(author);
     card.appendChild(pageCount);
     card.appendChild(hasRead);
+    card.appendChild(hasReadToggle);
     card.appendChild(removeButton);
 };
 
@@ -84,7 +90,7 @@ function clearForm(){
     title.value = '';
     author.value = '';
     pageCount.value = '';
-    hasRead.value = '';
+    hasRead.checked = false;
 };
 
 function removeBook(x){
