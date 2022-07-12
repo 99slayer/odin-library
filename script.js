@@ -18,10 +18,6 @@ function Book(title,author,pageCount,hasRead){
     this.hasRead = hasRead
 };
 
-Book.prototype.changeHasRead = function(){
-
-}
-
 function addBookToLibrary(){
     const book = new Book(title.value,author.value,pageCount.value,hasRead.checked);
     library.push(book);
@@ -50,6 +46,7 @@ function populateGrid(x){
     hasReadToggle.classList.add('hasReadToggle');
     hasReadToggle.setAttribute('type','checkbox');
     hasReadToggle.checked = x.hasRead;
+    hasReadToggle.setAttribute('onclick',`changeHasRead(${cardIndex})`);
 
     cardHeading.textContent = `${x.title}`;
     title.textContent = `TITLE: ${x.title}`;
@@ -69,6 +66,8 @@ function populateGrid(x){
     card.appendChild(hasRead);
     card.appendChild(hasReadToggle);
     card.appendChild(removeButton);
+    // console.log(typeof(x.hasRead));
+    // console.log(x.hasRead);
 };
 
 // clears grid to prevent book duplicates
@@ -79,6 +78,7 @@ function clearGrid(){
 function openForm(){
     clearForm();
     overlay.style.visibility='visible';
+    console.log(library[0].hasRead)
 };
 
 function closeForm(){
@@ -100,4 +100,19 @@ function removeBook(x){
     clearGrid();
     library.forEach(populateGrid);
     console.log(library);
+};
+
+function changeHasRead(x){
+    if(library[x].hasRead===true){
+        library[x].hasRead = false;
+    }
+    else if(library[x].hasRead===false){
+        library[x].hasRead = true;
+    }
+    else{
+        console.log('nothing happened.');
+        return;
+    };
+    clearGrid();
+    library.forEach(populateGrid);
 };
