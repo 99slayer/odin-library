@@ -6,51 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Odin Library</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> 
     <script src="script.js" defer></script>
 </head>
 <body>
     <div class="overlay">
-        <div class="wrapper">
-            <div>
-                <h2>New Book</h2>
-                <button type="button" onclick="closeForm()">X</button>
-            </div>
-            <form action="">
-                <label for="title">Title</label>
-                <input type="text" id="title">
-
-                <label for="author">Author</label>
-                <input type="text" id="author">
-
-                <label for="pageCount">Page Count</label>
-                <input type="text" id="pageCount">
-
-                <label for="hasRead">Have you read this book?</label>
-                <input type="checkbox" id="hasRead">
-                <!-- <input type="text" id="hasRead"> -->
-
-                <button type="button" onclick="addBookToLibrary()">Add Book</button>
-            </form>
+        <div class="overlayHeader">
+            <h2>New Book</h2>
+            <button type="button" onclick="closeForm()">X</button>
         </div>
+        <form action="" class="overlayForm">
+            <label for="title">Title</label>
+            <input type="text" id="title">
+
+            <label for="author">Author</label>
+            <input type="text" id="author">
+
+            <label for="pageCount">Page Count</label>
+            <input type="text" id="pageCount">
+
+            <label for="hasRead">Have you read this book?</label>
+            <input type="checkbox" id="hasRead">
+            <!-- <input type="text" id="hasRead"> -->
+
+            <button type="button" onclick="addBookToLibrary()">Add Book</button>
+        </form>
     </div>
     <div class="mainCont">
         <div class="header">
-            <div>
                 <h1>Welcome</h1>
-            </div>
-            <div>
                 <button onclick="openForm()">New Book</button>
-            </div>
         </div>
         <div class="cardGrid">
-            <!-- <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div> -->
+            <div class="card">
+                <h3>BOOK1</h3>
+                <h4>user input</h4>
+                <h4>user input</h4>
+                <h4>user input</h4>
+                <h4>user input</h4>
+                <input type="checkbox" name="" class="hasReadCheckbox">
+                <button>REMOVE BOOK</button>
+            </div>
+
+
+            <div class="card">
+                <h3>BOOK2</h3>
+                <h4>user input</h4>
+                <h4>user input</h4>
+                <h4>user input</h4>
+                <h4>user input</h4>
+                <input type="checkbox" name="" id=""><button>REMOVE BOOK</button></div>
+            <div class="card">
+                <h3>BOOK3</h3>
+                <h4>user input</h4>
+                <h4>user input</h4>
+                <h4>user input</h4>
+                <h4>user input</h4>
+                <input type="checkbox" name="" id=""><button>REMOVE BOOK</button></div>
+            <div class="card">
+                <h3>BOOK4</h3>
+                <h4>user input</h4>
+                <h4>user input</h4>
+                <h4>user input</h4>
+                <h4>user input</h4>
+                <input type="checkbox" name="" id=""><button>REMOVE BOOK</button></div>
         </div>
         <div class="footer">
+            <h2>Odin-library project</h2>
         </div>
     </div>
 </body>

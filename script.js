@@ -62,10 +62,10 @@ function populateGrid(x){
     hasReadToggle.setAttribute('onclick',`library[${cardIndex}].changeHasRead()`);
 
     cardHeading.textContent = `${x.title}`;
-    title.textContent = `TITLE: ${x.title}`;
-    author.textContent = `AUTHOR: ${x.author}`;
-    pageCount.textContent = `PAGE COUNT: ${x.pageCount}`;
-    hasRead.textContent = `HAVE YOU READ THIS BOOK?: ${x.hasRead}`;
+    title.textContent = `Title: ${x.title}`;
+    author.textContent = `Author: ${x.author}`;
+    pageCount.textContent = `Page count: ${x.pageCount}`;
+    hasRead.textContent = `Have you read this book?: ${x.hasRead}`;
 
     const removeButton = document.createElement('button');
     removeButton.setAttribute('onclick',`removeBook(${cardIndex})`);

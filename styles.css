@@ -1,55 +1,157 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*  */
+
 body{
-    height: 100vh;
-    background-color: aliceblue;
+    font-family: 'Press Start 2P',sans-serif;
+    height: auto;
+    background-color: rgb(219, 219, 219);
+}
+button{
+    font-family: 'Press Start 2P',sans-serif;
+    border: 3px solid black;
 }
 .overlay{
     visibility: hidden;
     position: absolute;
-    left: 40%;
-    top: 200px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
     padding: 10px;
     height: 40vh;
-    width: 20vw;
-    border: 3px solid darkblue;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    border: 3px solid black;
     background-color: white;
 }
-.overlay .wrapper{
-    display: grid;
-    gap: 10px;
+.overlayHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 }
-.overlay .wrapper form{
-    display: grid;
-    gap: 10px;
+.overlayHeader button{
+    padding-top: 3px;
+    background-color: rgb(255, 136, 136);
+}
+.overlayForm{
+    font-size: 0.85em;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content:center;
+    align-items: stretch;
+    gap: 15px;
+}
+.overlayForm input[type='checkbox']{
+    align-self: flex-start;
+}
+.overlayForm input[type='text']{
+    border: 3px solid black;
 }
 .mainCont{
-    padding: 10px 100px 10px 100px;
-    height: 100vh;
+    padding: 20px 100px 20px 100px;
     display: grid;
-    grid-template-rows: 1fr 5fr 1fr;
-    gap: 10px;
+    grid-template-columns: minmax(400px, 1fr);
+    grid-template-rows: 120px 1fr 120px;
+    gap: 20px;
 }
 .header{
-    display: grid;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    gap: 20px;
     border: 3px solid black;
+    background-color: white;
+}
+.header h1{
+    font-size: 1.4em;
+}
+.header button{
+    padding: 3px 6px 3px 6px;
+    background-color: rgb(156, 156, 255);
 }
 .cardGrid{
     padding: 20px;
     display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px,1fr));
+    grid-template-rows: repeat(auto-fit, minmax(220px,1fr));
+    gap: 20px;
+    overflow: scroll;
+    border: 3px solid black;
+    background-color: white;
+}
+.card{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex: 1;
     gap: 10px;
     border: 3px solid black;
 }
-.cardGrid .card{
-    padding: 10px;
-    display: grid;
-    gap: 10px;
-    border: 3px solid black;
+.card h4{
+    font-size: 0.7em;
+}
+.card button{
+    align-self: stretch;
+    background-color: rgb(255, 136, 136);
+
 }
 .footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 3px solid black;
+    background-color: white;
 }
