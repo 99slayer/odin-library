@@ -100,7 +100,7 @@ button{
     padding: 20px 100px 20px 100px;
     display: grid;
     grid-template-columns: minmax(400px, 1fr);
-    grid-template-rows: 120px 1fr 120px;
+    grid-template-rows: 120px minmax(266px, 1fr) 120px;
     gap: 20px;
 }
 .header{

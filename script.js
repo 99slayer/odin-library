@@ -42,6 +42,8 @@ function addBookToLibrary(){
     library.forEach(populateGrid);
 };
 
+let hasReadString;
+
 // loops through library array and displays each book on the page.
 function populateGrid(x){
     const card = document.createElement('div');
@@ -64,12 +66,19 @@ function populateGrid(x){
     hasReadToggle.checked = x.hasRead;
     hasReadToggle.setAttribute('onclick',`library[${cardIndex}].changeHasRead()`);
 
+    if(x.hasRead===true){
+        hasReadString = 'Yes';
+    };
+    if(x.hasRead===false){
+        hasReadString = 'No';
+    };
+
     cardTitle.textContent = `${x.title}`;
     bookNumber.textContent = `#${parseInt(cardIndex) + 1}`;
     title.textContent = `Title: ${x.title}`;
     author.textContent = `Author: ${x.author}`;
     pageCount.textContent = `Page count: ${x.pageCount}`;
-    hasRead.textContent = `Have you read this book?: ${x.hasRead}`;
+    hasRead.textContent = `Have you read this book?: ${hasReadString}`;
 
     const removeButton = document.createElement('button');
     removeButton.setAttribute('onclick',`removeBook(${cardIndex})`);
