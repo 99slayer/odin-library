@@ -17,19 +17,19 @@
             <h2>New Book</h2>
             <button type="button" onclick="closeForm()">X</button>
         </div>
+        <!-- can sort out the validation when we come back to this project  -->
         <form action="" class="overlayForm">
             <label for="title">Title</label>
-            <input type="text" id="title">
+            <input type="text" id="title" required>
 
             <label for="author">Author</label>
-            <input type="text" id="author">
+            <input type="text" id="author" required>
 
             <label for="pageCount">Page Count</label>
-            <input type="text" id="pageCount">
+            <input type="text" id="pageCount" required>
 
             <label for="hasRead">Have you read this book?</label>
             <input type="checkbox" id="hasRead">
-            <!-- <input type="text" id="hasRead"> -->
 
             <button type="button" onclick="addBookToLibrary()">Add Book</button>
         </form>
@@ -41,7 +41,10 @@
         </div>
         <div class="cardGrid">
             <div class="card">
-                <h3>BOOK1</h3>
+                <div class="cardHeader">
+                    <h3>BOOK1</h3>
+                    <h3>#1</h3>
+                </div>
                 <h4>user input</h4>
                 <h4>user input</h4>
                 <h4>user input</h4>

@@ -49,7 +49,10 @@ function populateGrid(x){
     card.setAttribute('data-library-index',`${library.indexOf(x)}`);
     let cardIndex = card.getAttribute('data-library-index');
 
-    const cardHeading = document.createElement('h3');
+    const cardHeader = document.createElement('div');
+    cardHeader.classList.add('cardHeader');
+    const cardTitle = document.createElement('h3');
+    const bookNumber = document.createElement('h3');
     const title = document.createElement('h4');
     const author = document.createElement('h4');
     const pageCount = document.createElement('h4');
@@ -61,7 +64,8 @@ function populateGrid(x){
     hasReadToggle.checked = x.hasRead;
     hasReadToggle.setAttribute('onclick',`library[${cardIndex}].changeHasRead()`);
 
-    cardHeading.textContent = `${x.title}`;
+    cardTitle.textContent = `${x.title}`;
+    bookNumber.textContent = `#${parseInt(cardIndex) + 1}`;
     title.textContent = `Title: ${x.title}`;
     author.textContent = `Author: ${x.author}`;
     pageCount.textContent = `Page count: ${x.pageCount}`;
@@ -72,7 +76,9 @@ function populateGrid(x){
     removeButton.textContent = 'REMOVE BOOK';
 
     cardGrid.appendChild(card);
-    card.appendChild(cardHeading);
+    card.appendChild(cardHeader);
+    cardHeader.appendChild(cardTitle);
+    cardHeader.appendChild(bookNumber);
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(pageCount);

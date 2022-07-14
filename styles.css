@@ -143,10 +143,17 @@ button{
 .card h4{
     font-size: 0.7em;
 }
+
 .card button{
     align-self: stretch;
     background-color: rgb(255, 136, 136);
 
+}
+.cardHeader{
+    display: flex;
+    align-self: stretch;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 .footer{
     display: flex;
