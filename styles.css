@@ -48,7 +48,6 @@ table {
 	border-spacing: 0;
 }
 /*  */
-
 body{
     font-family: 'Press Start 2P',sans-serif;
     height: auto;
@@ -143,11 +142,9 @@ button{
 .card h4{
     font-size: 0.7em;
 }
-
 .card button{
     align-self: stretch;
     background-color: rgb(255, 136, 136);
-
 }
 .cardHeader{
     display: flex;

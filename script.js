@@ -10,34 +10,35 @@ let hasRead = document.getElementById('hasRead');
 const library = [];
 let tempBook;
 
-// book constructor
-function Book(title,author,pageCount,hasRead){
-    this.title = title
-    this.author = author
-    this.pageCount = pageCount
-    this.hasRead = hasRead
-};
-
-Book.prototype.changeHasRead = function(){
-    if(this.hasRead===true){
-        this.hasRead = false;
+class Book{
+    // when a class is declared a function is created, whose code is taken from the constructor function
+    constructor(title,author,pageCount,hasRead){
+        this.title = title;
+        this.author = author;
+        this.pageCount = pageCount;
+        this.hasRead = hasRead;
     }
-    else if(this.hasRead===false){
-        this.hasRead = true;
+    // class methods are stored in the class function prototype
+    changeHasRead(){
+        if(this.hasRead===true){
+            this.hasRead = false;
+        }
+        else if(this.hasRead===false){
+            this.hasRead = true;
+        }
+        else{
+            console.log('nothing happened.');
+        };
+        clearGrid();
+        library.forEach(populateGrid);
+        console.log(this.hasRead);
     }
-    else{
-        console.log('nothing happened.');
-    };
-    clearGrid();
-    library.forEach(populateGrid);
-    console.log(this.hasRead);
-};
+}
 
 function addBookToLibrary(){
     const book = new Book(title.value,author.value,pageCount.value,hasRead.checked);
     library.push(book);
-    clearForm();
-    overlay.style.visibility='hidden';
+    closeForm()
     clearGrid();
     library.forEach(populateGrid);
 };
